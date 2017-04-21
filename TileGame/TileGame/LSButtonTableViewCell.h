@@ -1,5 +1,5 @@
 //
-//  LSLoginViewController.h
+//  LSButtonTableViewCell.h
 //  TileGame
 //
 //  Created by Artem Kravchenko on 4/21/17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LSLoginViewController : UIViewController
-
-@property (nonatomic, strong) NSArray *usersList;
+@interface LSButtonTableViewCell : UITableViewCell
 
 @end

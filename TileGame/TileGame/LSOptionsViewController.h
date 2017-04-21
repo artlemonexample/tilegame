@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LSUser.h"
+
 @interface LSOptionsViewController : UITableViewController
+
+@property (nonatomic, strong) LSUser *currentUser;
 
 @end

@@ -14,6 +14,12 @@
 		F06BE37B1EAA674900E4DF9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F06BE3791EAA674900E4DF9D /* LaunchScreen.storyboard */; };
 		F06BE3871EAA67B900E4DF9D /* LSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3861EAA67B900E4DF9D /* LSLoginViewController.m */; };
 		F06BE38D1EAA694000E4DF9D /* LSOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE38C1EAA694000E4DF9D /* LSOptionsViewController.m */; };
+		F06BE3901EAA6B7800E4DF9D /* LSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE38F1EAA6B7800E4DF9D /* LSUser.m */; };
+		F06BE3931EAA6BB300E4DF9D /* LSGame.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3921EAA6BB300E4DF9D /* LSGame.m */; };
+		F06BE3961EAA6BF300E4DF9D /* LSResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3951EAA6BF300E4DF9D /* LSResult.m */; };
+		F06BE3991EAA6E5C00E4DF9D /* LSTile.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3981EAA6E5C00E4DF9D /* LSTile.m */; };
+		F06BE39C1EAA730200E4DF9D /* LSDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE39B1EAA730200E4DF9D /* LSDataProvider.m */; };
+		F06BE3A01EAA7C2D00E4DF9D /* LSButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE39F1EAA7C2D00E4DF9D /* LSButtonTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +35,18 @@
 		F06BE3861EAA67B900E4DF9D /* LSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSLoginViewController.m; sourceTree = "<group>"; };
 		F06BE38B1EAA694000E4DF9D /* LSOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSOptionsViewController.h; sourceTree = "<group>"; };
 		F06BE38C1EAA694000E4DF9D /* LSOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSOptionsViewController.m; sourceTree = "<group>"; };
+		F06BE38E1EAA6B7800E4DF9D /* LSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSUser.h; sourceTree = "<group>"; };
+		F06BE38F1EAA6B7800E4DF9D /* LSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSUser.m; sourceTree = "<group>"; };
+		F06BE3911EAA6BB300E4DF9D /* LSGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSGame.h; sourceTree = "<group>"; };
+		F06BE3921EAA6BB300E4DF9D /* LSGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSGame.m; sourceTree = "<group>"; };
+		F06BE3941EAA6BF300E4DF9D /* LSResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSResult.h; sourceTree = "<group>"; };
+		F06BE3951EAA6BF300E4DF9D /* LSResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSResult.m; sourceTree = "<group>"; };
+		F06BE3971EAA6E5C00E4DF9D /* LSTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTile.h; sourceTree = "<group>"; };
+		F06BE3981EAA6E5C00E4DF9D /* LSTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTile.m; sourceTree = "<group>"; };
+		F06BE39A1EAA730200E4DF9D /* LSDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSDataProvider.h; sourceTree = "<group>"; };
+		F06BE39B1EAA730200E4DF9D /* LSDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSDataProvider.m; sourceTree = "<group>"; };
+		F06BE39E1EAA7C2D00E4DF9D /* LSButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSButtonTableViewCell.h; sourceTree = "<group>"; };
+		F06BE39F1EAA7C2D00E4DF9D /* LSButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSButtonTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +79,7 @@
 		F06BE36A1EAA674900E4DF9D /* TileGame */ = {
 			isa = PBXGroup;
 			children = (
+				F06BE39D1EAA7C0C00E4DF9D /* CustomViews */,
 				F06BE3841EAA675900E4DF9D /* Modules */,
 				F06BE3831EAA675400E4DF9D /* AppFiles */,
 				F06BE3821EAA674F00E4DF9D /* Models */,
@@ -80,6 +99,16 @@
 		F06BE3821EAA674F00E4DF9D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F06BE38E1EAA6B7800E4DF9D /* LSUser.h */,
+				F06BE38F1EAA6B7800E4DF9D /* LSUser.m */,
+				F06BE3911EAA6BB300E4DF9D /* LSGame.h */,
+				F06BE3921EAA6BB300E4DF9D /* LSGame.m */,
+				F06BE3941EAA6BF300E4DF9D /* LSResult.h */,
+				F06BE3951EAA6BF300E4DF9D /* LSResult.m */,
+				F06BE3971EAA6E5C00E4DF9D /* LSTile.h */,
+				F06BE3981EAA6E5C00E4DF9D /* LSTile.m */,
+				F06BE39A1EAA730200E4DF9D /* LSDataProvider.h */,
+				F06BE39B1EAA730200E4DF9D /* LSDataProvider.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -106,6 +135,15 @@
 				F06BE38C1EAA694000E4DF9D /* LSOptionsViewController.m */,
 			);
 			name = Modules;
+			sourceTree = "<group>";
+		};
+		F06BE39D1EAA7C0C00E4DF9D /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				F06BE39E1EAA7C2D00E4DF9D /* LSButtonTableViewCell.h */,
+				F06BE39F1EAA7C2D00E4DF9D /* LSButtonTableViewCell.m */,
+			);
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,10 +217,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06BE3991EAA6E5C00E4DF9D /* LSTile.m in Sources */,
 				F06BE3871EAA67B900E4DF9D /* LSLoginViewController.m in Sources */,
+				F06BE3A01EAA7C2D00E4DF9D /* LSButtonTableViewCell.m in Sources */,
 				F06BE3701EAA674900E4DF9D /* AppDelegate.m in Sources */,
 				F06BE38D1EAA694000E4DF9D /* LSOptionsViewController.m in Sources */,
+				F06BE39C1EAA730200E4DF9D /* LSDataProvider.m in Sources */,
 				F06BE36D1EAA674900E4DF9D /* main.m in Sources */,
+				F06BE3961EAA6BF300E4DF9D /* LSResult.m in Sources */,
+				F06BE3931EAA6BB300E4DF9D /* LSGame.m in Sources */,
+				F06BE3901EAA6B7800E4DF9D /* LSUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
