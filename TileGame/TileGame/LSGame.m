@@ -16,32 +16,56 @@
         self.startDate = [aDecoder decodeObjectForKey:@"startDate"];
         self.tilesSet = [aDecoder decodeObjectForKey:@"tilesSet"];
         self.imagesOrder = [aDecoder decodeObjectForKey:@"imagesOrder"];
+        self.gameMode = [aDecoder decodeIntegerForKey:@"gameMode"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeInteger:self.gameMode forKey:@"gameMode"];
     [aCoder encodeObject:self.startDate forKey:@"startDate"];
     [aCoder encodeObject:self.tilesSet forKey:@"tilesSet"];
     [aCoder encodeObject:self.imagesOrder forKey:@"imagesOrder"];
 }
 
-
-- (LSGameMode)gameMode {
-    switch (self.imagesOrder.count) {
-        case 12:
-            return LSGameModeEasy;
+- (NSInteger)itemsInLine {
+    switch (self.gameMode) {
+        case LSGameModeEasy:
+            return 4;
             break;
-        case 18:
-            return LSGameModeMedium;
+            
+        case LSGameModeMedium:
+            return 5;
             break;
-        case 24:
-            return LSGameModeHard;
+            
+        case LSGameModeHard:
+            return 6;
             break;
         default:
-            return LSGameModeEasy;
+            return 1;
             break;
     }
 }
+
+- (NSInteger)itemsInColumns {
+    switch (self.gameMode) {
+        case LSGameModeEasy:
+            return 5;
+            break;
+            
+        case LSGameModeMedium:
+            return 6;
+            break;
+            
+        case LSGameModeHard:
+            return 7;
+            break;
+            
+        default:
+            return 1;
+            break;
+    }
+}
+
 
 @end

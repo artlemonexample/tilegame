@@ -8,6 +8,10 @@
 
 #import "LSButtonTableViewCell.h"
 
+@interface LSButtonTableViewCell ()
+
+@end
+
 @implementation LSButtonTableViewCell
 
 - (void)awakeFromNib {
@@ -19,6 +23,11 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)actionButtonDidTap:(UIButton*)sender {
+    NSString *title = sender.titleLabel.text;
+    [self.delegate handleTap:title];
 }
 
 @end

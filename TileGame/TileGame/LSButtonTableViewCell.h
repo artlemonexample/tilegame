@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol LSButtonTableViewCellDelegate <NSObject>
+
+- (void)handleTap:(NSString*)title;
+
+@end
+
 @interface LSButtonTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIButton *actionButton;
+
+@property (nonatomic, weak) id<LSButtonTableViewCellDelegate> delegate;
 
 @end

@@ -16,5 +16,6 @@
 
 - (NSArray*)allUsers;
 - (LSUser*)addUser:(LSUser*)user;
+- (void)removeUser:(LSUser*)user;
 
 @end

@@ -8,7 +8,16 @@
 
 #import "LSOptionsViewController.h"
 
-@interface LSOptionsViewController ()
+#import "LSButtonTableViewCell.h"
+#import "LSGameViewController.h"
+#import "LSTile.h"
+#import "LSGame.h"
+
+@interface LSOptionsViewController () <LSButtonTableViewCellDelegate>
+
+@property (nonatomic, strong) NSArray *dataSource;
+
+@property (nonatomic, strong) LSGame *currentGame;
 
 @end
 
@@ -16,11 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.dataSource = @[@"Easy", @"Medium", @"Hard", @"Library"];
 }
 
 #pragma mark - Table view data source
@@ -30,13 +35,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return self.dataSource.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"button_cell" forIndexPath:indexPath];
-    
+    NSString *identifier = @"button_cell";
+    if (indexPath.row == self.dataSource.count-1) {
+        identifier = @"library_cell";
+    }
+    LSButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    cell.delegate = self;
+    [cell.actionButton setTitle:self.dataSource[indexPath.row] forState:UIControlStateNormal];
     return cell;
 }
 
@@ -75,14 +85,73 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (self.currentGame) {
+        LSGameViewController *gameController = [segue destinationViewController];
+        gameController.currentGame = self.currentGame;
+    }
 }
-*/
+
+
+
+#pragma mark - LSButtonTableViewCellDelegate
+
+- (void)handleTap:(NSString *)title
+{
+    if ([title isEqualToString:self.dataSource[0]])
+    {
+        LSGame *game = [LSGame new];
+        game.gameMode = LSGameModeEasy;
+        game.tilesSet = [self randomColorsForCount:game.itemsInLine * game.itemsInColumns];
+        self.currentGame = game;
+    }
+    else if ([title isEqualToString:self.dataSource[1]])
+    {
+        LSGame *game = [LSGame new];
+        game.gameMode = LSGameModeMedium;
+        game.tilesSet = [self randomColorsForCount:game.itemsInLine * game.itemsInColumns];
+        self.currentGame = game;
+    }
+    else if ([title isEqualToString:self.dataSource[2]])
+    {
+        LSGame *game = [LSGame new];
+        game.gameMode = LSGameModeHard;
+        game.tilesSet = [self randomColorsForCount:game.itemsInLine * game.itemsInColumns];
+        self.currentGame = game;
+    }
+    else
+    {
+        
+    }
+}
+
+- (NSArray*)randomColorsForCount:(NSInteger)count {
+    NSMutableArray *result = [NSMutableArray array];
+    for (int i = 0; i < count / 2; i++) {
+        LSTile *tile = [LSTile new];
+        tile.color = self.randomColor;
+        [result addObject:tile];
+    }
+    for (int i = (int)count/2, j = 0; i < count; i++, j++) {
+        LSTile *tile = [LSTile new];
+        LSTile *oldTile = result[j];
+        tile.color = oldTile.color;
+        [result addObject:tile];
+    }
+    return result;
+}
+
+- (UIColor *)randomColor
+{
+    float red = arc4random() % 255 / 255.0;
+    float green = arc4random() % 255 / 255.0;
+    float blue = arc4random() % 255 / 255.0;
+    UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    return color;
+}
 
 @end

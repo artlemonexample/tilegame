@@ -43,4 +43,22 @@
     return existedUser;
 }
 
+- (void)removeUser:(LSUser*)user {
+    NSUserDefaults *dataBase = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *users = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:[dataBase objectForKey:@"usersLists"]]];
+    NSInteger index = -1;
+    for (int i = 0; i < users.count; i++) {
+        LSUser *currentUser = users[i];
+        if ([currentUser.alias isEqualToString:user.alias]) {
+            index = i;
+            break;
+        }
+    }
+    if (index != -1) {
+        [users removeObjectAtIndex:index];
+        [dataBase setObject:[NSKeyedArchiver archivedDataWithRootObject:[users copy]] forKey:@"usersLists"];
+        [dataBase synchronize];
+    }
+}
+
 @end

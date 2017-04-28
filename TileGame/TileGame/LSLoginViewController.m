@@ -81,7 +81,6 @@
 
 
 #pragma mark - UITableViewDelegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.currentUser = self.usersList[indexPath.row];
     self.aliasTextField.text = @"";

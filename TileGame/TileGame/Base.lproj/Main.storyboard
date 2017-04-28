@@ -118,10 +118,41 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="actionButtonDidTap:" destination="uPf-Uv-S07" eventType="touchUpInside" id="AT3-hJ-YFr"/>
+                                                <segue destination="ELz-6L-B3i" kind="show" id="eJi-hQ-CEK"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="actionButton" destination="lvo-Uj-qnJ" id="lrt-gr-ovU"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="library_cell" rowHeight="60" id="hHL-73-cfs" customClass="LSButtonTableViewCell">
+                                <rect key="frame" x="0.0" y="88" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hHL-73-cfs" id="reM-aK-6I9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCw-sA-0p7">
+                                            <rect key="frame" x="102" y="5" width="171" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="actionButtonDidTap:" destination="hHL-73-cfs" eventType="touchUpInside" id="0aT-AD-sPi"/>
+                                                <segue destination="Vfi-6o-eva" kind="show" id="vBg-0L-NW1"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="actionButton" destination="cCw-sA-0p7" id="Nwu-YU-ewa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -163,28 +194,52 @@
             </objects>
             <point key="canvasLocation" x="2993" y="-214"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="fNL-wm-CPY">
             <objects>
-                <collectionViewController id="ELz-6L-B3i" sceneMemberID="viewController">
+                <collectionViewController id="ELz-6L-B3i" customClass="LSGameViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tdm-6Y-Ymk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fEI-L2-QuA">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="fEI-L2-QuA">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="59i-XS-FgW">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tile_cell" id="59i-XS-FgW" customClass="LSTileCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XSB-Rr-QbO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lr3-CC-QSf">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <color key="backgroundColor" red="0.2471474095" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="Lr3-CC-QSf" firstAttribute="leading" secondItem="59i-XS-FgW" secondAttribute="leading" id="9HQ-cI-tAj"/>
+                                    <constraint firstAttribute="bottom" secondItem="XSB-Rr-QbO" secondAttribute="bottom" id="MbE-VS-xOA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lr3-CC-QSf" secondAttribute="trailing" id="TSH-hx-hKr"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lr3-CC-QSf" secondAttribute="bottom" id="UBf-P4-TOh"/>
+                                    <constraint firstItem="XSB-Rr-QbO" firstAttribute="leading" secondItem="59i-XS-FgW" secondAttribute="leading" id="dab-4O-FR5"/>
+                                    <constraint firstItem="XSB-Rr-QbO" firstAttribute="top" secondItem="59i-XS-FgW" secondAttribute="top" id="tmJ-BO-yXz"/>
+                                    <constraint firstAttribute="trailing" secondItem="XSB-Rr-QbO" secondAttribute="trailing" id="veN-16-Z6J"/>
+                                    <constraint firstItem="Lr3-CC-QSf" firstAttribute="top" secondItem="59i-XS-FgW" secondAttribute="top" id="xLc-o0-Hy9"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="colorView" destination="XSB-Rr-QbO" id="k3X-uu-6a4"/>
+                                    <outlet property="headImageView" destination="Lr3-CC-QSf" id="62z-rx-pkd"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -216,4 +271,7 @@
             <point key="canvasLocation" x="165.59999999999999" y="-543.77811094452773"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="head.png" width="256" height="256"/>
+    </resources>
 </document>

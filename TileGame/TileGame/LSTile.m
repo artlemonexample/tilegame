@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         self.imageName = [aDecoder decodeObjectForKey:@"imageName"];
+        self.flipped = [aDecoder decodeObjectForKey:@"flipped"];
         self.guessed = [aDecoder decodeBoolForKey:@"guessed"];
     }
     return self;
@@ -21,6 +22,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.imageName forKey:@"imageName"];
+    [aCoder encodeInteger:self.flipped forKey:@"flipped"];
     [aCoder encodeBool:self.guessed forKey:@"guessed"];
 }
 

@@ -19,8 +19,10 @@ typedef NS_ENUM(NSUInteger, LSGameMode) {
 
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSArray *tilesSet;
+@property (nonatomic, assign) LSGameMode gameMode;
 @property (nonatomic, strong) NSIndexSet *imagesOrder;
 
-- (LSGameMode)gameMode;
+- (NSInteger)itemsInLine;
+- (NSInteger)itemsInColumns;
 
 @end
