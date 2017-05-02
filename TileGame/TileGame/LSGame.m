@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         self.startDate = [aDecoder decodeObjectForKey:@"startDate"];
+        self.stopDate = [aDecoder decodeObjectForKey:@"stopDate"];
         self.tilesSet = [aDecoder decodeObjectForKey:@"tilesSet"];
         self.imagesOrder = [aDecoder decodeObjectForKey:@"imagesOrder"];
         self.gameMode = [aDecoder decodeIntegerForKey:@"gameMode"];
@@ -24,6 +25,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeInteger:self.gameMode forKey:@"gameMode"];
     [aCoder encodeObject:self.startDate forKey:@"startDate"];
+    [aCoder encodeObject:self.stopDate forKey:@"stopDate"];
     [aCoder encodeObject:self.tilesSet forKey:@"tilesSet"];
     [aCoder encodeObject:self.imagesOrder forKey:@"imagesOrder"];
 }
@@ -65,6 +67,27 @@
             return 1;
             break;
     }
+}
+
+- (NSTimeInterval)timeSpent {
+    if (self.startDate != nil) {
+        NSDate *bound = [NSDate date];
+        if (self.stopDate != nil) {
+            bound = self.stopDate;
+        }
+        return [bound timeIntervalSinceDate:self.startDate];
+    }
+    return 0;
+}
+
+- (NSString*)timeSpentFormatted {
+    NSString *result = nil;
+    int seconds = 0, minutes = 0;
+    NSTimeInterval timeInterval = self.timeSpent;
+    minutes = timeInterval / 60;
+    seconds = timeInterval - minutes*60;
+    result = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+    return result;
 }
 
 

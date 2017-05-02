@@ -18,11 +18,14 @@ typedef NS_ENUM(NSUInteger, LSGameMode) {
 @interface LSGame : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSDate *stopDate;
 @property (nonatomic, strong) NSArray *tilesSet;
 @property (nonatomic, assign) LSGameMode gameMode;
 @property (nonatomic, strong) NSIndexSet *imagesOrder;
 
 - (NSInteger)itemsInLine;
 - (NSInteger)itemsInColumns;
+
+- (NSString*)timeSpentFormatted;
 
 @end

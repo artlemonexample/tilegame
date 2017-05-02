@@ -17,6 +17,7 @@ CGFloat const kOffset = 15.0;
 
 @property (nonatomic, strong) NSIndexPath *firstOpenTile;
 @property (nonatomic, strong) NSIndexPath *secondOpenTile;
+@property (nonatomic, assign) BOOL blockManualFlipping;
 
 @end
 
@@ -26,13 +27,16 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"tile_cell"];
+    if (self.currentGame.startDate == nil) {
+        self.currentGame.startDate = [NSDate date];
+    }
+    [self updateTitle];
     [self.collectionView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
 }
 
 /*
@@ -64,76 +68,69 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    LSTileCollectionViewCell *cell = (id)[self.collectionView cellForItemAtIndexPath:indexPath];
-    LSTile *firsTile = nil;
-    if (self.firstOpenTile != nil) {
-        firsTile = self.currentGame.tilesSet[self.firstOpenTile.row];
+    if (self.blockManualFlipping) {
+        return;
     }
+    // Logic of flip
     LSTile *tile = self.currentGame.tilesSet[indexPath.row];
-    if (self.firstOpenTile == nil) {
-        self.firstOpenTile = indexPath;
-    } else if (self.secondOpenTile == nil) {
-        self.secondOpenTile = indexPath;
-        if (![tile.color isEqual:firsTile.color]) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self collectionView:collectionView didSelectItemAtIndexPath:self.firstOpenTile];
-                [self collectionView:collectionView didSelectItemAtIndexPath:self.secondOpenTile];
+    // Logic of matching tiles
+    if (self.firstOpenTile == indexPath && self.secondOpenTile == nil && tile.flipped) {
+        return;
+    }
+    if (self.firstOpenTile == nil || indexPath == self.firstOpenTile) {
+        if (!tile.guessed) {
+            self.firstOpenTile = indexPath;
+            [self flipCellForIndexPath:indexPath];
+        }
+    } else if (self.firstOpenTile && (self.secondOpenTile == nil || indexPath == self.secondOpenTile)) {
+        if (!tile.guessed) {
+            LSTile *firstTile = nil;
+            if (self.firstOpenTile != nil) {
+                firstTile = self.currentGame.tilesSet[self.firstOpenTile.row];
+            }
+            if (![tile.color isEqual:firstTile.color] && indexPath != self.secondOpenTile) {
+                self.secondOpenTile = indexPath;
+                self.blockManualFlipping = YES;
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self flipCellForIndexPath:self.firstOpenTile];
+                    [self flipCellForIndexPath:self.secondOpenTile];
+                });
+            } else {
                 self.firstOpenTile = nil;
                 self.secondOpenTile = nil;
-            });
-        } else {
-            self.firstOpenTile = nil;
-            self.secondOpenTile = nil;
+                firstTile.guessed = YES;
+                tile.guessed = YES;
+            }
+            [self flipCellForIndexPath:indexPath];
         }
     }
-    if (tile.flipped) {
-        [UIView transitionFromView:cell.colorView toView:cell.headImageView
-                          duration:0.5
-                           options:UIViewAnimationOptionTransitionFlipFromRight
-                        completion:^(BOOL finished) {
-//                            cell.headImageView.alpha = 1.0;
-                        }];
-    } else {
-        [UIView transitionFromView:cell.headImageView  toView:cell.colorView
-                          duration:0.5
-                           options:UIViewAnimationOptionTransitionFlipFromLeft
-                        completion:^(BOOL finished) {
-//                            cell.headImageView.alpha = 0.0;
-                        }];
-    }
-    
+}
+
+- (void)flipCellForIndexPath:(NSIndexPath*)indexPath {
+    LSTileCollectionViewCell *cell = (id)[self.collectionView cellForItemAtIndexPath:indexPath];
+    LSTile *tile = self.currentGame.tilesSet[indexPath.row];
+    UIViewAnimationOptions animationOption = tile.flipped ? UIViewAnimationOptionTransitionFlipFromRight: UIViewAnimationOptionTransitionFlipFromLeft;
+    BOOL hideTile = !tile.flipped;
+    [UIView transitionWithView:cell
+                      duration:0.5
+                       options:animationOption
+                    animations:^{
+                        cell.headImageView.hidden = hideTile;
+                    }
+                    completion:^(BOOL finished) {
+                        if (!tile.flipped) {
+                            if (self.secondOpenTile != nil) {
+                                self.secondOpenTile = nil;
+                            } else if (self.firstOpenTile != nil) {
+                                self.firstOpenTile = nil;
+                                self.blockManualFlipping = NO;
+                            }
+                        }
+                    }];
     tile.flipped = !tile.flipped;
 }
+
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
@@ -164,5 +161,11 @@ static NSString * const reuseIdentifier = @"Cell";
     return result / 2.0; // self.colsInLine * kHorizontalOffset / (float)(self.colsInLine + 1);
 }
 
+- (void)updateTitle {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.navigationItem.title = self.currentGame.timeSpentFormatted;
+        [self updateTitle];
+    });
+}
 
 @end

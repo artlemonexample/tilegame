@@ -21,8 +21,8 @@
 		F06BE39C1EAA730200E4DF9D /* LSDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE39B1EAA730200E4DF9D /* LSDataProvider.m */; };
 		F06BE3A01EAA7C2D00E4DF9D /* LSButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE39F1EAA7C2D00E4DF9D /* LSButtonTableViewCell.m */; };
 		F06BE3C71EB3A31200E4DF9D /* LSGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3C61EB3A31200E4DF9D /* LSGameViewController.m */; };
-		F06BE3C91EB3A43400E4DF9D /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = F06BE3C81EB3A43400E4DF9D /* head.png */; };
 		F06BE3CC1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3CB1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m */; };
+		F06BE3D91EB90E1F00E4DF9D /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = F06BE3D81EB90E1F00E4DF9D /* head.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,9 +52,9 @@
 		F06BE39F1EAA7C2D00E4DF9D /* LSButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSButtonTableViewCell.m; sourceTree = "<group>"; };
 		F06BE3C51EB3A31200E4DF9D /* LSGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSGameViewController.h; sourceTree = "<group>"; };
 		F06BE3C61EB3A31200E4DF9D /* LSGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSGameViewController.m; sourceTree = "<group>"; };
-		F06BE3C81EB3A43400E4DF9D /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = head.png; path = ../../../../../../../Downloads/head.png; sourceTree = "<group>"; };
 		F06BE3CA1EB3AEB300E4DF9D /* LSTileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTileCollectionViewCell.h; sourceTree = "<group>"; };
 		F06BE3CB1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTileCollectionViewCell.m; sourceTree = "<group>"; };
+		F06BE3D81EB90E1F00E4DF9D /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 		F06BE3831EAA675400E4DF9D /* AppFiles */ = {
 			isa = PBXGroup;
 			children = (
-				F06BE3C81EB3A43400E4DF9D /* head.png */,
+				F06BE3D81EB90E1F00E4DF9D /* head.png */,
 				F06BE36E1EAA674900E4DF9D /* AppDelegate.h */,
 				F06BE36F1EAA674900E4DF9D /* AppDelegate.m */,
 				F06BE3741EAA674900E4DF9D /* Main.storyboard */,
@@ -218,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F06BE37B1EAA674900E4DF9D /* LaunchScreen.storyboard in Resources */,
-				F06BE3C91EB3A43400E4DF9D /* head.png in Resources */,
+				F06BE3D91EB90E1F00E4DF9D /* head.png in Resources */,
 				F06BE3781EAA674900E4DF9D /* Assets.xcassets in Resources */,
 				F06BE3761EAA674900E4DF9D /* Main.storyboard in Resources */,
 			);

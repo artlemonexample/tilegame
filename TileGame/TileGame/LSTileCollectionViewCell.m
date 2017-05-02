@@ -14,6 +14,7 @@
 - (void)updateWithModel:(LSTile*)model {
     self.tile = model;
     self.colorView.backgroundColor = model.color;
+    self.headImageView.hidden = model.guessed;
 }
 
 @end
