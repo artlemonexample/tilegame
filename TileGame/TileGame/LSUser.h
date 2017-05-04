@@ -15,6 +15,9 @@
 
 @property (nonatomic, strong) NSString *alias;
 
+- (NSArray*)allResults;
+- (void)addResult:(LSResult*)result;
+
 - (LSGame*)gameForMode:(LSGameMode)gameMode;
 - (void)setGame:(LSGame*)game forMode:(LSGameMode)gameMode;
 

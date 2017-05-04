@@ -18,6 +18,8 @@ CGFloat const kOffset = 15.0;
 @property (nonatomic, strong) NSIndexPath *firstOpenTile;
 @property (nonatomic, strong) NSIndexPath *secondOpenTile;
 @property (nonatomic, assign) BOOL blockManualFlipping;
+@property (nonatomic, assign) NSInteger guessedTiles;
+@property (nonatomic, assign) BOOL stopUpdatingTitle;
 
 @end
 
@@ -30,12 +32,15 @@ static NSString * const reuseIdentifier = @"Cell";
     if (self.currentGame.startDate == nil) {
         self.currentGame.startDate = [NSDate date];
     }
+    self.stopUpdatingTitle = NO;
     [self updateTitle];
     [self.collectionView reloadData];
+    [self updateGuessedTiles];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self addResultIfNeeded];
 }
 
 /*
@@ -100,6 +105,10 @@ static NSString * const reuseIdentifier = @"Cell";
                 self.secondOpenTile = nil;
                 firstTile.guessed = YES;
                 tile.guessed = YES;
+                self.guessedTiles += 2;
+                if (self.gameIsEnded) {
+                    [self showCongradulationAlert];
+                }
             }
             [self flipCellForIndexPath:indexPath];
         }
@@ -160,11 +169,17 @@ static NSString * const reuseIdentifier = @"Cell";
     return result / 2.0; // self.colsInLine * kHorizontalOffset / (float)(self.colsInLine + 1);
 }
 
+
+#pragma mark - Logic
+
 - (void)updateTitle {
+    __weak typeof(self) self_weak_ = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.currentGame.gameTime++;
-        self.navigationItem.title = self.currentGame.timeSpentFormatted;
-        [self updateTitle];
+        if (!self_weak_.stopUpdatingTitle) {
+            self_weak_.currentGame.gameTime++;
+            self_weak_.navigationItem.title = self_weak_.currentGame.timeSpentFormatted;
+            [self_weak_ updateTitle];
+        }
     });
 }
 
@@ -177,8 +192,32 @@ static NSString * const reuseIdentifier = @"Cell";
         }
     }
     if (allGuesed) {
-        // TODO:(Artem) add result to user
+        LSResult *result = [LSResult new];
+        result.startDate = self.currentGame.startDate;
+        result.endDate = self.currentGame.stopDate;
+        result.gameMode = self.currentGame.gameMode;
+        [self.currentUser addResult:result];
+        [self.currentUser setGame:nil forMode:self.currentGame.gameMode];
     }
+}
+
+- (void)updateGuessedTiles {
+    self.guessedTiles = 0;
+    for (LSTile *tile in self.currentGame.tilesSet) {
+        if (tile.guessed) {
+            self.guessedTiles++;
+        }
+    }
+}
+
+- (BOOL)gameIsEnded {
+    return self.currentGame.tilesSet.count == self.guessedTiles;
+}
+
+- (void)showCongradulationAlert {
+    self.stopUpdatingTitle = YES;
+    self.currentGame.stopDate = NSDate.date;
+    // TODO: need to implement
 }
 
 @end

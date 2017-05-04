@@ -56,5 +56,12 @@
     self.games[@(gameMode)] = game;
 }
 
+- (NSArray *)allResults {
+    return [self.results copy];
+}
+
+- (void)addResult:(LSResult *)result {
+    [self.results addObject:result];
+}
 
 @end

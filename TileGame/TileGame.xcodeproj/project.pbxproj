@@ -23,6 +23,7 @@
 		F06BE3C71EB3A31200E4DF9D /* LSGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3C61EB3A31200E4DF9D /* LSGameViewController.m */; };
 		F06BE3CC1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3CB1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m */; };
 		F06BE3D91EB90E1F00E4DF9D /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = F06BE3D81EB90E1F00E4DF9D /* head.png */; };
+		F06BE3DC1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3DB1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		F06BE3CA1EB3AEB300E4DF9D /* LSTileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTileCollectionViewCell.h; sourceTree = "<group>"; };
 		F06BE3CB1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTileCollectionViewCell.m; sourceTree = "<group>"; };
 		F06BE3D81EB90E1F00E4DF9D /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head.png; sourceTree = "<group>"; };
+		F06BE3DA1EBBC11000E4DF9D /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
+		F06BE3DB1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				F06BE3771EAA674900E4DF9D /* Assets.xcassets */,
 				F06BE3791EAA674900E4DF9D /* LaunchScreen.storyboard */,
 				F06BE37C1EAA674900E4DF9D /* Info.plist */,
+				F06BE3DA1EBBC11000E4DF9D /* NSMutableArray+Shuffle.h */,
+				F06BE3DB1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m */,
 			);
 			name = AppFiles;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				F06BE38D1EAA694000E4DF9D /* LSOptionsViewController.m in Sources */,
 				F06BE39C1EAA730200E4DF9D /* LSDataProvider.m in Sources */,
 				F06BE36D1EAA674900E4DF9D /* main.m in Sources */,
+				F06BE3DC1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m in Sources */,
 				F06BE3961EAA6BF300E4DF9D /* LSResult.m in Sources */,
 				F06BE3931EAA6BB300E4DF9D /* LSGame.m in Sources */,
 				F06BE3901EAA6B7800E4DF9D /* LSUser.m in Sources */,

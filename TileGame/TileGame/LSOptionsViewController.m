@@ -8,6 +8,8 @@
 
 #import "LSOptionsViewController.h"
 
+#import "NSMutableArray+Shuffle.h"
+
 #import "LSButtonTableViewCell.h"
 #import "LSGameViewController.h"
 #import "LSDataProvider.h"
@@ -148,6 +150,7 @@
         tile.color = oldTile.color;
         [result addObject:tile];
     }
+    [result shuffle];
     return result;
 }
 
