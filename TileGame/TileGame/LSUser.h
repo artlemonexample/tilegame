@@ -14,6 +14,8 @@
 @interface LSUser : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *alias;
-@property (nonatomic, strong) LSGame *currentGame;
+
+- (LSGame*)gameForMode:(LSGameMode)gameMode;
+- (void)setGame:(LSGame*)game forMode:(LSGameMode)gameMode;
 
 @end

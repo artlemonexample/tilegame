@@ -28,19 +28,23 @@
 - (LSUser*)addUser:(LSUser*)user {
     NSUserDefaults *dataBase = [NSUserDefaults standardUserDefaults];
     NSMutableArray *users = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:[dataBase objectForKey:@"usersLists"]]];
-    LSUser *existedUser = nil;
-    for (LSUser *aUser in users) {
+    NSInteger index = -1;
+    for (int i = 0; i < users.count; i++) {
+        LSUser *aUser = users[i];
         if ([aUser.alias isEqualToString:user.alias]) {
-            existedUser = aUser;
+            index = i;
             break;
         }
     }
-    if (existedUser == nil) {
+    
+    if (index == -1) {
         [users addObject:user];
-        [dataBase setObject:[NSKeyedArchiver archivedDataWithRootObject:[users copy]] forKey:@"usersLists"];
-        [dataBase synchronize];
+    } else {
+        [users replaceObjectAtIndex:index withObject:user];
     }
-    return existedUser;
+    [dataBase setObject:[NSKeyedArchiver archivedDataWithRootObject:[users copy]] forKey:@"usersLists"];
+    [dataBase synchronize];
+    return user;
 }
 
 - (void)removeUser:(LSUser*)user {

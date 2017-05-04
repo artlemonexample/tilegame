@@ -10,6 +10,7 @@
 
 #import "LSButtonTableViewCell.h"
 #import "LSGameViewController.h"
+#import "LSDataProvider.h"
 #import "LSTile.h"
 #import "LSGame.h"
 
@@ -27,6 +28,12 @@
     [super viewDidLoad];
     self.dataSource = @[@"Easy", @"Medium", @"Hard", @"Library"];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[LSDataProvider sharedInstance] addUser:self.currentUser];
+}
+
 
 #pragma mark - Table view data source
 
@@ -93,6 +100,7 @@
     if (self.currentGame) {
         LSGameViewController *gameController = [segue destinationViewController];
         gameController.currentGame = self.currentGame;
+        gameController.currentUser = self.currentUser;
     }
 }
 
@@ -104,29 +112,27 @@
 {
     if ([title isEqualToString:self.dataSource[0]])
     {
-        LSGame *game = [LSGame new];
-        game.gameMode = LSGameModeEasy;
-        game.tilesSet = [self randomColorsForCount:game.itemsInLine * game.itemsInColumns];
-        self.currentGame = game;
+        self.currentGame = [self gameForMode:LSGameModeEasy];
     }
     else if ([title isEqualToString:self.dataSource[1]])
     {
-        LSGame *game = [LSGame new];
-        game.gameMode = LSGameModeMedium;
-        game.tilesSet = [self randomColorsForCount:game.itemsInLine * game.itemsInColumns];
-        self.currentGame = game;
+        self.currentGame = [self gameForMode:LSGameModeMedium];
     }
     else if ([title isEqualToString:self.dataSource[2]])
     {
-        LSGame *game = [LSGame new];
-        game.gameMode = LSGameModeHard;
+        self.currentGame = [self gameForMode:LSGameModeHard];
+    }
+}
+
+- (LSGame*)gameForMode:(LSGameMode)gameMode {
+    LSGame *game = [self.currentUser gameForMode:gameMode];
+    if (game == nil) {
+        game = [LSGame new];
+        game.gameMode = gameMode;
+        [self.currentUser setGame:game forMode:gameMode];
         game.tilesSet = [self randomColorsForCount:game.itemsInLine * game.itemsInColumns];
-        self.currentGame = game;
     }
-    else
-    {
-        
-    }
+    return game;
 }
 
 - (NSArray*)randomColorsForCount:(NSInteger)count {

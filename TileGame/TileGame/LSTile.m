@@ -16,6 +16,7 @@
         self.imageName = [aDecoder decodeObjectForKey:@"imageName"];
         self.flipped = [aDecoder decodeObjectForKey:@"flipped"];
         self.guessed = [aDecoder decodeBoolForKey:@"guessed"];
+        self.color = [aDecoder decodeObjectForKey:@"color"];
     }
     return self;
 }
@@ -24,6 +25,11 @@
     [aCoder encodeObject:self.imageName forKey:@"imageName"];
     [aCoder encodeInteger:self.flipped forKey:@"flipped"];
     [aCoder encodeBool:self.guessed forKey:@"guessed"];
+    [aCoder encodeObject:self.color forKey:@"color"];
+}
+
+- (BOOL)isEqualToTile:(LSTile*)tile {
+    return [self.color isEqual:tile.color];
 }
 
 @end

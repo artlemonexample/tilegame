@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LSUser.h"
 #import "LSGame.h"
 
 @interface LSGameViewController : UICollectionViewController
 
+@property (nonatomic, strong) LSUser *currentUser;
 @property (nonatomic, strong) LSGame *currentGame;
 
 @end

@@ -36,7 +36,6 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
 }
 
 /*
@@ -89,7 +88,7 @@ static NSString * const reuseIdentifier = @"Cell";
             if (self.firstOpenTile != nil) {
                 firstTile = self.currentGame.tilesSet[self.firstOpenTile.row];
             }
-            if (![tile.color isEqual:firstTile.color] && indexPath != self.secondOpenTile) {
+            if (![tile isEqualToTile:firstTile] && indexPath != self.secondOpenTile) {
                 self.secondOpenTile = indexPath;
                 self.blockManualFlipping = YES;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -163,9 +162,23 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)updateTitle {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.currentGame.gameTime++;
         self.navigationItem.title = self.currentGame.timeSpentFormatted;
         [self updateTitle];
     });
+}
+
+- (void)addResultIfNeeded {
+    BOOL allGuesed = YES;
+    for (LSTile *tile in self.currentGame.tilesSet) {
+        if (!tile.guessed) {
+            allGuesed = NO;
+            break;
+        }
+    }
+    if (allGuesed) {
+        // TODO:(Artem) add result to user
+    }
 }
 
 @end

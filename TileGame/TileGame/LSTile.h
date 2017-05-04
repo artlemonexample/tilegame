@@ -16,4 +16,6 @@
 @property (nonatomic, strong) NSString *imageName;
 @property (nonatomic, strong) UIColor *color;
 
+- (BOOL)isEqualToTile:(LSTile*)tile;
+
 @end
