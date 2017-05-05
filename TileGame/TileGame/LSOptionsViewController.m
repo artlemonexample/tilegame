@@ -10,9 +10,11 @@
 
 #import "NSMutableArray+Shuffle.h"
 
+#import "LSLibraryViewController.h"
 #import "LSButtonTableViewCell.h"
 #import "LSGameViewController.h"
 #import "LSDataProvider.h"
+#import "FCFileManager.h"
 #import "LSTile.h"
 #import "LSGame.h"
 
@@ -29,10 +31,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSource = @[@"Easy", @"Medium", @"Hard", @"Library"];
+    NSLog(@"%@", [FCFileManager pathForDocumentsDirectory]);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.currentGame = nil;
     [[LSDataProvider sharedInstance] addUser:self.currentUser];
 }
 
@@ -103,6 +107,9 @@
         LSGameViewController *gameController = [segue destinationViewController];
         gameController.currentGame = self.currentGame;
         gameController.currentUser = self.currentUser;
+    } else {
+        LSLibraryViewController *libraryController = [segue destinationViewController];
+        libraryController.currentUser = self.currentUser;
     }
 }
 
@@ -141,6 +148,7 @@
     NSMutableArray *result = [NSMutableArray array];
     for (int i = 0; i < count / 2; i++) {
         LSTile *tile = [LSTile new];
+        tile.imageName = [self.allImagesForUser[i] stringByReplacingOccurrencesOfString:[FCFileManager pathForLibraryDirectory] withString:@""];
         tile.color = self.randomColor;
         [result addObject:tile];
     }
@@ -148,10 +156,18 @@
         LSTile *tile = [LSTile new];
         LSTile *oldTile = result[j];
         tile.color = oldTile.color;
+        tile.imageName = oldTile.imageName;
         [result addObject:tile];
     }
     [result shuffle];
     return result;
+}
+
+
+- (NSArray*)allImagesForUser {
+    NSString *userPath = [NSString stringWithFormat:@"%@/%@", [FCFileManager pathForLibraryDirectory], self.currentUser.alias];
+    NSArray *images = [FCFileManager listFilesInDirectoryAtPath:userPath];
+    return images;
 }
 
 - (UIColor *)randomColor

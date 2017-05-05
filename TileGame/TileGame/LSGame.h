@@ -9,6 +9,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kBaseImageNage;
+
 typedef NS_ENUM(NSUInteger, LSGameMode) {
     LSGameModeEasy,
     LSGameModeMedium,

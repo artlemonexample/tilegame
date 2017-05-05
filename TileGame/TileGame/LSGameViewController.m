@@ -217,7 +217,12 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)showCongradulationAlert {
     self.stopUpdatingTitle = YES;
     self.currentGame.stopDate = NSDate.date;
-    // TODO: need to implement
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Complete" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Congradulation" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

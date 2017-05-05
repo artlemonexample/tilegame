@@ -1,0 +1,1 @@
+../../../ImageFilesPicker/Vendor/EXTScope.h

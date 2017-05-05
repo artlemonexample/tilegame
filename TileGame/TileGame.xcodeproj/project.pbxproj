@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		159F95210ED79A70A7142262 /* libPods-TileGame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D6508F5ED06B7414D4B3E5 /* libPods-TileGame.a */; };
 		F06BE36D1EAA674900E4DF9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE36C1EAA674900E4DF9D /* main.m */; };
 		F06BE3701EAA674900E4DF9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE36F1EAA674900E4DF9D /* AppDelegate.m */; };
 		F06BE3761EAA674900E4DF9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F06BE3741EAA674900E4DF9D /* Main.storyboard */; };
@@ -24,9 +25,14 @@
 		F06BE3CC1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3CB1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m */; };
 		F06BE3D91EB90E1F00E4DF9D /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = F06BE3D81EB90E1F00E4DF9D /* head.png */; };
 		F06BE3DC1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3DB1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m */; };
+		F06BE4021EBCDEF700E4DF9D /* LSLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE4011EBCDEF700E4DF9D /* LSLibraryViewController.m */; };
+		F06BE4051EBCE4F600E4DF9D /* LSImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE4041EBCE4F600E4DF9D /* LSImageTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65D6508F5ED06B7414D4B3E5 /* libPods-TileGame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TileGame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		874FA023A092E262F278328E /* Pods-TileGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TileGame.release.xcconfig"; path = "Pods/Target Support Files/Pods-TileGame/Pods-TileGame.release.xcconfig"; sourceTree = "<group>"; };
+		A3F8BACBEAE53872755816AC /* Pods-TileGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TileGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TileGame/Pods-TileGame.debug.xcconfig"; sourceTree = "<group>"; };
 		F06BE3681EAA674900E4DF9D /* TileGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TileGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F06BE36C1EAA674900E4DF9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F06BE36E1EAA674900E4DF9D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +64,10 @@
 		F06BE3D81EB90E1F00E4DF9D /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head.png; sourceTree = "<group>"; };
 		F06BE3DA1EBBC11000E4DF9D /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
 		F06BE3DB1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
+		F06BE4001EBCDEF700E4DF9D /* LSLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSLibraryViewController.h; sourceTree = "<group>"; };
+		F06BE4011EBCDEF700E4DF9D /* LSLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSLibraryViewController.m; sourceTree = "<group>"; };
+		F06BE4031EBCE4F600E4DF9D /* LSImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSImageTableViewCell.h; sourceTree = "<group>"; };
+		F06BE4041EBCE4F600E4DF9D /* LSImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSImageTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,17 +75,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				159F95210ED79A70A7142262 /* libPods-TileGame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6430E96D5A876AD83F1C55A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8BACBEAE53872755816AC /* Pods-TileGame.debug.xcconfig */,
+				874FA023A092E262F278328E /* Pods-TileGame.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F06BE35F1EAA674900E4DF9D = {
 			isa = PBXGroup;
 			children = (
 				F06BE36A1EAA674900E4DF9D /* TileGame */,
 				F06BE3691EAA674900E4DF9D /* Products */,
+				6430E96D5A876AD83F1C55A0 /* Pods */,
+				F10F7921294BC1F13C3604E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +171,8 @@
 				F06BE38C1EAA694000E4DF9D /* LSOptionsViewController.m */,
 				F06BE3C51EB3A31200E4DF9D /* LSGameViewController.h */,
 				F06BE3C61EB3A31200E4DF9D /* LSGameViewController.m */,
+				F06BE4001EBCDEF700E4DF9D /* LSLibraryViewController.h */,
+				F06BE4011EBCDEF700E4DF9D /* LSLibraryViewController.m */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -160,8 +184,18 @@
 				F06BE39F1EAA7C2D00E4DF9D /* LSButtonTableViewCell.m */,
 				F06BE3CA1EB3AEB300E4DF9D /* LSTileCollectionViewCell.h */,
 				F06BE3CB1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m */,
+				F06BE4031EBCE4F600E4DF9D /* LSImageTableViewCell.h */,
+				F06BE4041EBCE4F600E4DF9D /* LSImageTableViewCell.m */,
 			);
 			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		F10F7921294BC1F13C3604E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65D6508F5ED06B7414D4B3E5 /* libPods-TileGame.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,9 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F06BE37F1EAA674900E4DF9D /* Build configuration list for PBXNativeTarget "TileGame" */;
 			buildPhases = (
+				D515315100F0E7FD9056423E /* 📦 Check Pods Manifest.lock */,
 				F06BE3641EAA674900E4DF9D /* Sources */,
 				F06BE3651EAA674900E4DF9D /* Frameworks */,
 				F06BE3661EAA674900E4DF9D /* Resources */,
+				EB31BAF721065AA09FBDC73E /* 📦 Embed Pods Frameworks */,
+				A982222142AED8968CFEF8F3 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,12 +268,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A982222142AED8968CFEF8F3 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TileGame/Pods-TileGame-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D515315100F0E7FD9056423E /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EB31BAF721065AA09FBDC73E /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TileGame/Pods-TileGame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F06BE3641EAA674900E4DF9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F06BE3991EAA6E5C00E4DF9D /* LSTile.m in Sources */,
+				F06BE4051EBCE4F600E4DF9D /* LSImageTableViewCell.m in Sources */,
+				F06BE4021EBCDEF700E4DF9D /* LSLibraryViewController.m in Sources */,
 				F06BE3CC1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m in Sources */,
 				F06BE3871EAA67B900E4DF9D /* LSLoginViewController.m in Sources */,
 				F06BE3A01EAA7C2D00E4DF9D /* LSButtonTableViewCell.m in Sources */,
@@ -364,6 +451,7 @@
 		};
 		F06BE3801EAA674900E4DF9D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3F8BACBEAE53872755816AC /* Pods-TileGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TileGame/Info.plist;
@@ -375,6 +463,7 @@
 		};
 		F06BE3811EAA674900E4DF9D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 874FA023A092E262F278328E /* Pods-TileGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TileGame/Info.plist;

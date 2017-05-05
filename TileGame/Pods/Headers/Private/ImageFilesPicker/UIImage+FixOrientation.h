@@ -1,0 +1,1 @@
+../../../ImageFilesPicker/Vendor/UIImage+FixOrientation.h

@@ -180,22 +180,39 @@
             </objects>
             <point key="canvasLocation" x="2024.8" y="-535.68215892053979"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Title-->
         <scene sceneID="uJP-cI-giZ">
             <objects>
-                <tableViewController id="Vfi-6o-eva" sceneMemberID="viewController">
+                <tableViewController id="Vfi-6o-eva" customClass="LSLibraryViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jDJ-LK-piU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="N1m-dl-8Ep">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="image_cell" rowHeight="50" id="N1m-dl-8Ep" customClass="LSImageTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N1m-dl-8Ep" id="nNh-uu-gh7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zJc-gg-OhC">
+                                            <rect key="frame" x="163" y="0.0" width="48" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="Fqg-bc-8LD"/>
+                                                <constraint firstAttribute="width" constant="48" id="ktG-mQ-B9W"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zJc-gg-OhC" firstAttribute="top" secondItem="nNh-uu-gh7" secondAttribute="top" id="hOY-9D-LFi"/>
+                                        <constraint firstItem="zJc-gg-OhC" firstAttribute="centerX" secondItem="nNh-uu-gh7" secondAttribute="centerX" id="pFY-ho-1Wf"/>
+                                        <constraint firstAttribute="bottom" secondItem="zJc-gg-OhC" secondAttribute="bottom" constant="1" id="ygt-jV-0Nm"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="iconImageView" destination="zJc-gg-OhC" id="3Ry-nM-DyB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -203,6 +220,13 @@
                             <outlet property="delegate" destination="Vfi-6o-eva" id="8Lf-H6-TOb"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="1SE-l3-Noh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JOa-j5-ozK">
+                            <connections>
+                                <action selector="addDidTap:" destination="Vfi-6o-eva" id="zRZ-V1-uHl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKZ-2T-fh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -212,7 +236,7 @@
         <scene sceneID="fNL-wm-CPY">
             <objects>
                 <collectionViewController id="ELz-6L-B3i" customClass="LSGameViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="tdm-6Y-Ymk">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tdm-6Y-Ymk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -234,6 +258,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="twi-jK-5uD">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="ao1-B8-5pb"/>
+                                                <constraint firstAttribute="height" constant="50" id="c7d-cc-5mN"/>
+                                            </constraints>
+                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lr3-CC-QSf">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <color key="backgroundColor" red="0.2471474095" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -241,7 +272,9 @@
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="twi-jK-5uD" firstAttribute="leading" secondItem="59i-XS-FgW" secondAttribute="leading" id="4JV-9U-Lq6"/>
                                     <constraint firstItem="Lr3-CC-QSf" firstAttribute="leading" secondItem="59i-XS-FgW" secondAttribute="leading" id="9HQ-cI-tAj"/>
+                                    <constraint firstItem="twi-jK-5uD" firstAttribute="top" secondItem="59i-XS-FgW" secondAttribute="top" id="HLP-f3-DI8"/>
                                     <constraint firstAttribute="bottom" secondItem="XSB-Rr-QbO" secondAttribute="bottom" id="MbE-VS-xOA"/>
                                     <constraint firstAttribute="trailing" secondItem="Lr3-CC-QSf" secondAttribute="trailing" id="TSH-hx-hKr"/>
                                     <constraint firstAttribute="bottom" secondItem="Lr3-CC-QSf" secondAttribute="bottom" id="UBf-P4-TOh"/>
@@ -253,6 +286,7 @@
                                 <connections>
                                     <outlet property="colorView" destination="XSB-Rr-QbO" id="k3X-uu-6a4"/>
                                     <outlet property="headImageView" destination="Lr3-CC-QSf" id="62z-rx-pkd"/>
+                                    <outlet property="tileImage" destination="twi-jK-5uD" id="m8y-0a-Zp9"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

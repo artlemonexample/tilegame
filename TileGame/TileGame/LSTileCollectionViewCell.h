@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *colorView;
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *tileImage;
 
 - (void)updateWithModel:(LSTile*)model;
 

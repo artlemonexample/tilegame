@@ -1,0 +1,20 @@
+PODS:
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
+  - FCFileManager (1.0.18)
+  - ImageFilesPicker (0.2.1)
+
+DEPENDENCIES:
+  - ChameleonFramework
+  - FCFileManager
+  - ImageFilesPicker
+
+SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  FCFileManager: 3d13576da1f709d37460bd7669cdf07b9d6d8bc3
+  ImageFilesPicker: 63d777724e69b18fc80b39a92f0fdbba660daac6
+
+PODFILE CHECKSUM: cbb7d0b74674d5d69dae45aabe121c0549a98c98
+
+COCOAPODS: 1.0.0

@@ -8,6 +8,8 @@
 
 #import "LSGame.h"
 
+NSString * const kBaseImageNage = @"image";
+
 @implementation LSGame
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
