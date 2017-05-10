@@ -27,6 +27,14 @@
 		F06BE3DC1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE3DB1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m */; };
 		F06BE4021EBCDEF700E4DF9D /* LSLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE4011EBCDEF700E4DF9D /* LSLibraryViewController.m */; };
 		F06BE4051EBCE4F600E4DF9D /* LSImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F06BE4041EBCE4F600E4DF9D /* LSImageTableViewCell.m */; };
+		F09D89F91EC37442008E9983 /* TileGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F09D89F71EC37442008E9983 /* TileGame.xcdatamodeld */; };
+		F09D8A0F1EC378F1008E9983 /* LSGameMapEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D89FD1EC378F1008E9983 /* LSGameMapEntity+CoreDataProperties.m */; };
+		F09D8A111EC378F1008E9983 /* LSGameEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D8A011EC378F1008E9983 /* LSGameEntity+CoreDataProperties.m */; };
+		F09D8A131EC378F1008E9983 /* LSTileEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D8A051EC378F1008E9983 /* LSTileEntity+CoreDataProperties.m */; };
+		F09D8A151EC378F1008E9983 /* LSUserEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D8A091EC378F1008E9983 /* LSUserEntity+CoreDataProperties.m */; };
+		F09D8A171EC378F1008E9983 /* LSResultEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D8A0D1EC378F1008E9983 /* LSResultEntity+CoreDataProperties.m */; };
+		F09D8A1C1EC37CDC008E9983 /* NSMutableSet+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D8A191EC37CDC008E9983 /* NSMutableSet+Merge.m */; };
+		F09D8A1D1EC37CDC008E9983 /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D8A1B1EC37CDC008E9983 /* UIColor+Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +76,31 @@
 		F06BE4011EBCDEF700E4DF9D /* LSLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSLibraryViewController.m; sourceTree = "<group>"; };
 		F06BE4031EBCE4F600E4DF9D /* LSImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSImageTableViewCell.h; sourceTree = "<group>"; };
 		F06BE4041EBCE4F600E4DF9D /* LSImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSImageTableViewCell.m; sourceTree = "<group>"; };
+		F09D89F81EC37442008E9983 /* TileGame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TileGame.xcdatamodel; sourceTree = "<group>"; };
+		F09D89FA1EC378F1008E9983 /* LSGameMapEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSGameMapEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		F09D89FB1EC378F1008E9983 /* LSGameMapEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSGameMapEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		F09D89FC1EC378F1008E9983 /* LSGameMapEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSGameMapEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F09D89FD1EC378F1008E9983 /* LSGameMapEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSGameMapEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F09D89FE1EC378F1008E9983 /* LSGameEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSGameEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		F09D89FF1EC378F1008E9983 /* LSGameEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSGameEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		F09D8A001EC378F1008E9983 /* LSGameEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSGameEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F09D8A011EC378F1008E9983 /* LSGameEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSGameEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F09D8A021EC378F1008E9983 /* LSTileEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSTileEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		F09D8A031EC378F1008E9983 /* LSTileEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSTileEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		F09D8A041EC378F1008E9983 /* LSTileEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSTileEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F09D8A051EC378F1008E9983 /* LSTileEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSTileEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F09D8A061EC378F1008E9983 /* LSUserEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSUserEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		F09D8A071EC378F1008E9983 /* LSUserEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSUserEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		F09D8A081EC378F1008E9983 /* LSUserEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSUserEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F09D8A091EC378F1008E9983 /* LSUserEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSUserEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F09D8A0A1EC378F1008E9983 /* LSResultEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSResultEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		F09D8A0B1EC378F1008E9983 /* LSResultEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSResultEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		F09D8A0C1EC378F1008E9983 /* LSResultEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSResultEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F09D8A0D1EC378F1008E9983 /* LSResultEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSResultEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F09D8A181EC37CDC008E9983 /* NSMutableSet+Merge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+Merge.h"; sourceTree = "<group>"; };
+		F09D8A191EC37CDC008E9983 /* NSMutableSet+Merge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+Merge.m"; sourceTree = "<group>"; };
+		F09D8A1A1EC37CDC008E9983 /* UIColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = "<group>"; };
+		F09D8A1B1EC37CDC008E9983 /* UIColor+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,14 +165,8 @@
 		F06BE3821EAA674F00E4DF9D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F06BE38E1EAA6B7800E4DF9D /* LSUser.h */,
-				F06BE38F1EAA6B7800E4DF9D /* LSUser.m */,
-				F06BE3911EAA6BB300E4DF9D /* LSGame.h */,
-				F06BE3921EAA6BB300E4DF9D /* LSGame.m */,
-				F06BE3941EAA6BF300E4DF9D /* LSResult.h */,
-				F06BE3951EAA6BF300E4DF9D /* LSResult.m */,
-				F06BE3971EAA6E5C00E4DF9D /* LSTile.h */,
-				F06BE3981EAA6E5C00E4DF9D /* LSTile.m */,
+				F09D89F61EC37426008E9983 /* CoreDataModels */,
+				F09D89F51EC37417008E9983 /* DomainModels */,
 				F06BE39A1EAA730200E4DF9D /* LSDataProvider.h */,
 				F06BE39B1EAA730200E4DF9D /* LSDataProvider.m */,
 			);
@@ -158,6 +185,10 @@
 				F06BE37C1EAA674900E4DF9D /* Info.plist */,
 				F06BE3DA1EBBC11000E4DF9D /* NSMutableArray+Shuffle.h */,
 				F06BE3DB1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m */,
+				F09D8A181EC37CDC008E9983 /* NSMutableSet+Merge.h */,
+				F09D8A191EC37CDC008E9983 /* NSMutableSet+Merge.m */,
+				F09D8A1A1EC37CDC008E9983 /* UIColor+Utils.h */,
+				F09D8A1B1EC37CDC008E9983 /* UIColor+Utils.m */,
 			);
 			name = AppFiles;
 			sourceTree = "<group>";
@@ -188,6 +219,49 @@
 				F06BE4041EBCE4F600E4DF9D /* LSImageTableViewCell.m */,
 			);
 			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		F09D89F51EC37417008E9983 /* DomainModels */ = {
+			isa = PBXGroup;
+			children = (
+				F06BE38E1EAA6B7800E4DF9D /* LSUser.h */,
+				F06BE38F1EAA6B7800E4DF9D /* LSUser.m */,
+				F06BE3911EAA6BB300E4DF9D /* LSGame.h */,
+				F06BE3921EAA6BB300E4DF9D /* LSGame.m */,
+				F06BE3941EAA6BF300E4DF9D /* LSResult.h */,
+				F06BE3951EAA6BF300E4DF9D /* LSResult.m */,
+				F06BE3971EAA6E5C00E4DF9D /* LSTile.h */,
+				F06BE3981EAA6E5C00E4DF9D /* LSTile.m */,
+			);
+			name = DomainModels;
+			sourceTree = "<group>";
+		};
+		F09D89F61EC37426008E9983 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				F09D89FA1EC378F1008E9983 /* LSGameMapEntity+CoreDataClass.h */,
+				F09D89FB1EC378F1008E9983 /* LSGameMapEntity+CoreDataClass.m */,
+				F09D89FC1EC378F1008E9983 /* LSGameMapEntity+CoreDataProperties.h */,
+				F09D89FD1EC378F1008E9983 /* LSGameMapEntity+CoreDataProperties.m */,
+				F09D89FE1EC378F1008E9983 /* LSGameEntity+CoreDataClass.h */,
+				F09D89FF1EC378F1008E9983 /* LSGameEntity+CoreDataClass.m */,
+				F09D8A001EC378F1008E9983 /* LSGameEntity+CoreDataProperties.h */,
+				F09D8A011EC378F1008E9983 /* LSGameEntity+CoreDataProperties.m */,
+				F09D8A021EC378F1008E9983 /* LSTileEntity+CoreDataClass.h */,
+				F09D8A031EC378F1008E9983 /* LSTileEntity+CoreDataClass.m */,
+				F09D8A041EC378F1008E9983 /* LSTileEntity+CoreDataProperties.h */,
+				F09D8A051EC378F1008E9983 /* LSTileEntity+CoreDataProperties.m */,
+				F09D8A061EC378F1008E9983 /* LSUserEntity+CoreDataClass.h */,
+				F09D8A071EC378F1008E9983 /* LSUserEntity+CoreDataClass.m */,
+				F09D8A081EC378F1008E9983 /* LSUserEntity+CoreDataProperties.h */,
+				F09D8A091EC378F1008E9983 /* LSUserEntity+CoreDataProperties.m */,
+				F09D8A0A1EC378F1008E9983 /* LSResultEntity+CoreDataClass.h */,
+				F09D8A0B1EC378F1008E9983 /* LSResultEntity+CoreDataClass.m */,
+				F09D8A0C1EC378F1008E9983 /* LSResultEntity+CoreDataProperties.h */,
+				F09D8A0D1EC378F1008E9983 /* LSResultEntity+CoreDataProperties.m */,
+				F09D89F71EC37442008E9983 /* TileGame.xcdatamodeld */,
+			);
+			name = CoreDataModels;
 			sourceTree = "<group>";
 		};
 		F10F7921294BC1F13C3604E8 /* Frameworks */ = {
@@ -322,19 +396,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				F06BE3991EAA6E5C00E4DF9D /* LSTile.m in Sources */,
+				F09D8A131EC378F1008E9983 /* LSTileEntity+CoreDataProperties.m in Sources */,
 				F06BE4051EBCE4F600E4DF9D /* LSImageTableViewCell.m in Sources */,
 				F06BE4021EBCDEF700E4DF9D /* LSLibraryViewController.m in Sources */,
 				F06BE3CC1EB3AEB300E4DF9D /* LSTileCollectionViewCell.m in Sources */,
 				F06BE3871EAA67B900E4DF9D /* LSLoginViewController.m in Sources */,
+				F09D89F91EC37442008E9983 /* TileGame.xcdatamodeld in Sources */,
+				F09D8A111EC378F1008E9983 /* LSGameEntity+CoreDataProperties.m in Sources */,
 				F06BE3A01EAA7C2D00E4DF9D /* LSButtonTableViewCell.m in Sources */,
 				F06BE3701EAA674900E4DF9D /* AppDelegate.m in Sources */,
+				F09D8A1D1EC37CDC008E9983 /* UIColor+Utils.m in Sources */,
 				F06BE3C71EB3A31200E4DF9D /* LSGameViewController.m in Sources */,
 				F06BE38D1EAA694000E4DF9D /* LSOptionsViewController.m in Sources */,
 				F06BE39C1EAA730200E4DF9D /* LSDataProvider.m in Sources */,
+				F09D8A0F1EC378F1008E9983 /* LSGameMapEntity+CoreDataProperties.m in Sources */,
 				F06BE36D1EAA674900E4DF9D /* main.m in Sources */,
 				F06BE3DC1EBBC11000E4DF9D /* NSMutableArray+Shuffle.m in Sources */,
 				F06BE3961EAA6BF300E4DF9D /* LSResult.m in Sources */,
+				F09D8A1C1EC37CDC008E9983 /* NSMutableSet+Merge.m in Sources */,
+				F09D8A171EC378F1008E9983 /* LSResultEntity+CoreDataProperties.m in Sources */,
 				F06BE3931EAA6BB300E4DF9D /* LSGame.m in Sources */,
+				F09D8A151EC378F1008E9983 /* LSUserEntity+CoreDataProperties.m in Sources */,
 				F06BE3901EAA6B7800E4DF9D /* LSUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,6 +577,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F09D89F71EC37442008E9983 /* TileGame.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F09D89F81EC37442008E9983 /* TileGame.xcdatamodel */,
+			);
+			currentVersion = F09D89F81EC37442008E9983 /* TileGame.xcdatamodel */;
+			path = TileGame.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F06BE3601EAA674900E4DF9D /* Project object */;
 }

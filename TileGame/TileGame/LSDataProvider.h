@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 #import "LSUser.h"
+#import "LSResult.h"
+#import "LSGameMapEntity+CoreDataClass.h"
+#import "LSGameEntity+CoreDataProperties.h"
 
 @interface LSDataProvider : NSObject
 
@@ -17,5 +20,10 @@
 - (NSArray*)allUsers;
 - (LSUser*)addUser:(LSUser*)user;
 - (void)removeUser:(LSUser*)user;
+
+- (LSTileEntity*)tileEntityWithID:(NSString*)tileID;
+- (LSGameEntity*)gameEntityWithID:(NSString*)gameID;
+- (LSResultEntity*)resultEntityWithID:(NSString*)resultID;
+- (LSGameMapEntity*)gameMapEntityForGameID:(NSString*)gameID;
 
 @end

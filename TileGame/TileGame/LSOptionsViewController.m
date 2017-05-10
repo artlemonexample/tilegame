@@ -137,6 +137,7 @@
     LSGame *game = [self.currentUser gameForMode:gameMode];
     if (game == nil) {
         game = [LSGame new];
+        game.gameID = [[NSProcessInfo processInfo] globallyUniqueString];
         game.gameMode = gameMode;
         [self.currentUser setGame:game forMode:gameMode];
         game.tilesSet = [self randomColorsForCount:game.itemsInLine * game.itemsInColumns];
@@ -148,6 +149,7 @@
     NSMutableArray *result = [NSMutableArray array];
     for (int i = 0; i < count / 2; i++) {
         LSTile *tile = [LSTile new];
+        tile.tileID = [[NSProcessInfo processInfo] globallyUniqueString];
         tile.imageName = [self.allImagesForUser[i] stringByReplacingOccurrencesOfString:[FCFileManager pathForLibraryDirectory] withString:@""];
         tile.color = self.randomColor;
         [result addObject:tile];
@@ -155,11 +157,15 @@
     for (int i = (int)count/2, j = 0; i < count; i++, j++) {
         LSTile *tile = [LSTile new];
         LSTile *oldTile = result[j];
+        tile.tileID = [[NSProcessInfo processInfo] globallyUniqueString];
         tile.color = oldTile.color;
         tile.imageName = oldTile.imageName;
         [result addObject:tile];
     }
     [result shuffle];
+    [result enumerateObjectsUsingBlock:^(LSTile*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.order = idx;
+    }];
     return result;
 }
 

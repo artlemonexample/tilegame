@@ -9,6 +9,8 @@
 #import "LSGameViewController.h"
 
 #import "LSTileCollectionViewCell.h"
+#import "LSResult.h"
+#import "LSGame.h"
 #import "LSTile.h"
 
 CGFloat const kOffset = 15.0;
@@ -193,6 +195,7 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     if (allGuesed) {
         LSResult *result = [LSResult new];
+        result.resultID = [[NSProcessInfo processInfo] globallyUniqueString];
         result.startDate = self.currentGame.startDate;
         result.endDate = self.currentGame.stopDate;
         result.gameMode = self.currentGame.gameMode;

@@ -8,6 +8,8 @@
 
 #import "LSGame.h"
 
+#import "LSDataProvider.h"
+
 NSString * const kBaseImageNage = @"image";
 
 @implementation LSGame
@@ -20,11 +22,13 @@ NSString * const kBaseImageNage = @"image";
         self.tilesSet = [aDecoder decodeObjectForKey:@"tilesSet"];
         self.gameMode = [aDecoder decodeIntegerForKey:@"gameMode"];
         self.gameTime = [aDecoder decodeInt64ForKey:@"gameTime"];
+        self.gameID = [aDecoder decodeObjectForKey:@"gameID"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.gameID forKey:@"gameID"];
     [aCoder encodeInteger:self.gameMode forKey:@"gameMode"];
     [aCoder encodeObject:self.startDate forKey:@"startDate"];
     [aCoder encodeObject:self.stopDate forKey:@"stopDate"];
@@ -90,6 +94,45 @@ NSString * const kBaseImageNage = @"image";
     seconds = timeInterval - minutes*60;
     result = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
     return result;
+}
+
+
+#pragma mark - Mapping
+
++ (LSGame*)gameFromEntity:(LSGameEntity*)gameEntity {
+    LSGame *result = [LSGame new];
+    result.gameID = [gameEntity.gameID copy];
+    result.startDate = [gameEntity.startDate copy];
+    result.stopDate = [gameEntity.stopDate copy];
+    result.gameMode = gameEntity.gameMode;
+    result.gameTime = gameEntity.gameTime;
+    NSMutableArray *tilesSet = [NSMutableArray array];
+    [gameEntity.tilesSet enumerateObjectsUsingBlock:^(LSTileEntity * _Nonnull obj, BOOL * _Nonnull stop) {
+        [tilesSet addObject:[LSTile tileFromEntity:obj]];
+    }];
+    result.tilesSet = [[tilesSet copy] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
+    return result;
+}
+
+- (void)fillEntityFromGame:(LSGameEntity*)gameEntity {
+    gameEntity.gameID = [self.gameID copy];
+    gameEntity.startDate = [self.startDate copy];
+    gameEntity.stopDate = [self.stopDate copy];
+    gameEntity.gameMode = self.gameMode;
+    gameEntity.gameTime = self.gameTime;
+    // Tiles set
+    NSMutableSet *tilesSet = [NSMutableSet set];
+    [self.tilesSet enumerateObjectsUsingBlock:^(LSTile* _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        LSTileEntity *tileEntity = [[LSDataProvider sharedInstance] tileEntityWithID:obj.tileID];
+        [obj fillEntity:tileEntity];
+        [tilesSet addObject:tileEntity];
+    }];
+    [[gameEntity mutableSetValueForKey:@"tilesSet"] mergeFromSet:tilesSet addBlock:^(LSTileEntity *tileEntity) {
+        [gameEntity addTilesSetObject:tileEntity];
+    } deleteBlock:^(LSTileEntity *tileEntity) {
+        [gameEntity removeTilesSetObject:tileEntity];
+    }];
+    //    gameEntity.tilesSet = [tilesSet copy];
 }
 
 

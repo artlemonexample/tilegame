@@ -4,17 +4,22 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - FCFileManager (1.0.18)
   - ImageFilesPicker (0.2.1)
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
 
 DEPENDENCIES:
   - ChameleonFramework
   - FCFileManager
   - ImageFilesPicker
+  - MagicalRecord
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   FCFileManager: 3d13576da1f709d37460bd7669cdf07b9d6d8bc3
   ImageFilesPicker: 63d777724e69b18fc80b39a92f0fdbba660daac6
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
 
-PODFILE CHECKSUM: cbb7d0b74674d5d69dae45aabe121c0549a98c98
+PODFILE CHECKSUM: 73c38d426818763c17d0aa9d1a526640081c78f5
 
 COCOAPODS: 1.0.0

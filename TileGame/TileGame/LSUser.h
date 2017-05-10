@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "LSResult.h"
 #import "LSGame.h"
+#import "LSUserEntity+CoreDataClass.h"
+#import "LSUserEntity+CoreDataProperties.h"
+
+@class LSResult, LSGame;
 
 @interface LSUser : NSObject <NSCoding>
 
@@ -20,5 +23,8 @@
 
 - (LSGame*)gameForMode:(LSGameMode)gameMode;
 - (void)setGame:(LSGame*)game forMode:(LSGameMode)gameMode;
+
++ (LSUser*)userFromEntity:(LSUserEntity*)userEntity;
+- (void)fillEntityFromUser:(LSUserEntity*)userEntity;
 
 @end

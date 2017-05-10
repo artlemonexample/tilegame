@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1004" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="LSGameEntity" representedClassName="LSGameEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="gameID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gameMode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="gameTime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="stopDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="gameMap" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LSGameMapEntity" inverseName="game" inverseEntity="LSGameMapEntity" syncable="YES"/>
+        <relationship name="tilesSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LSTileEntity" inverseName="game" inverseEntity="LSTileEntity" syncable="YES"/>
+    </entity>
+    <entity name="LSGameMapEntity" representedClassName="LSGameMapEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="gameMode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LSGameEntity" inverseName="gameMap" inverseEntity="LSGameEntity" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LSUserEntity" inverseName="games" inverseEntity="LSUserEntity" syncable="YES"/>
+    </entity>
+    <entity name="LSResultEntity" representedClassName="LSResultEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="gameMode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="resultID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LSUserEntity" inverseName="results" inverseEntity="LSUserEntity" syncable="YES"/>
+    </entity>
+    <entity name="LSTileEntity" representedClassName="LSTileEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flipped" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="guessed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tileID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LSGameEntity" inverseName="tilesSet" inverseEntity="LSGameEntity" syncable="YES"/>
+    </entity>
+    <entity name="LSUserEntity" representedClassName="LSUserEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="alias" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LSGameMapEntity" inverseName="user" inverseEntity="LSGameMapEntity" syncable="YES"/>
+        <relationship name="results" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LSResultEntity" inverseName="user" inverseEntity="LSResultEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LSTileEntity" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="LSUserEntity" positionX="-54" positionY="-9" width="128" height="30"/>
+        <element name="LSGameEntity" positionX="-36" positionY="9" width="128" height="30"/>
+        <element name="LSResultEntity" positionX="-18" positionY="27" width="128" height="30"/>
+        <element name="LSGameMapEntity" positionX="0" positionY="36" width="128" height="30"/>
+    </elements>
+</model>

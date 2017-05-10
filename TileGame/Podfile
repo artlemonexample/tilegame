@@ -7,5 +7,6 @@ pod ‘ChameleonFramework’
 
 pod ‘ImageFilesPicker'
 pod 'FCFileManager'
+pod 'MagicalRecord'
 
 end
